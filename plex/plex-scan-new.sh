@@ -54,7 +54,7 @@ while read tvfile; do
 done
 echo "$(date "+%d.%m.%Y %T") TV folders scanned in $(($(date +'%s') - $startseries)) seconds" | tee -a "$LOGFILE"
 
-echo "$(date "+%d.%m.%Y %T") Move & TV folders scanned in $(($(date +'%s') - $start)) seconds" | tee -a "$LOGFILE"
+echo "$(date "+%d.%m.%Y %T") Movie & TV folders scanned in $(($(date +'%s') - $start)) seconds" | tee -a "$LOGFILE"
 echo "$(date "+%d.%m.%Y %T") Setting lastrun for next folder scans" | tee -a "$LOGFILE"
 touch $LASTRUNFILE
 echo "$(date "+%d.%m.%Y %T") Remove duplicates" | tee -a "$LOGFILE"

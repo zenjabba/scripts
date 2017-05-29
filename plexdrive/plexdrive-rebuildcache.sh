@@ -11,7 +11,7 @@ LOGFILE="/home/plex/logs/plexdrive-rebuildcache.log"
 PLEXDRIVEEXEC=/usr/bin/plexdrive # Set path to plexdrive executable
 PLEXDRIVEMNT=/mnt/plexdrive # Set path to plexdrive mount
 PLEXDRIVECONF=~/.plexdrive # Set location of your plexdrive config or leave default
-PLEXDRIVEMOUNTCMD="/home/plex/scripts/mountplexdrive" # Set path to your plexdrive mount script. If you use systemd replace it with "sudo systemctl plexdrive.service start"
+PLEXDRIVEMOUNTCMD="/home/plex/scripts/mountplexdrive" # Set path to your plexdrive mount script. If you use systemd replace it with "sudo systemctl plexdrive.service restart"
 PLEXDRIVETMPMNT=/mnt/tmp #Make sure you have read/write permissions in /mnt
 
 echo "$(date "+%d.%m.%Y %T") plexdrive rebuild cache started" | tee -a $LOGFILE
@@ -80,7 +80,7 @@ case "$response" in
     rm -rf /dev/shm/chunks | tee -a $LOGFILE
 
     ###  LIST OF COMMANDS TO PREFORM ONCE DRIVE IS REMOUNTED
-    ## Start srvices stopped before remount
+    ## Start services stopped before remount
     echo "Mounting plexdrive and starting all services" | tee -a $LOGFILE
     /home/plex/scripts/mountplexdrive
     echo "$(date "+%d.%m.%Y %T") plexdrive rebuild cache finished" | tee -a $LOGFILE
